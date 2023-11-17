@@ -2,6 +2,8 @@
 """
     This module defines an empty class, Square.
 """
+
+
 class Square:
     """Defines a square.
 
