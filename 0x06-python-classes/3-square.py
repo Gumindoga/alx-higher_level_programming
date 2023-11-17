@@ -4,7 +4,7 @@ This module defines a Square class.
 
 The Square class defines a square by a private instance attribute size.
 The size of the square can be set at the time of creation and defaults to 0.
-The size of the square can only be an integer and must be greater than or equal to 0.
+The size of the square can only be an integer and >= 0.
 """
 
 

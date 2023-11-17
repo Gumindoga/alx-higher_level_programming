@@ -5,11 +5,12 @@ This module defines a Node and SinglyLinkedList classes.
 The Node class defines a node of a singly linked list.
 The SinglyLinkedList class defines a singly linked list.
 
-The Node class includes a method to set and retrieve the data stored in the node,
+The Node class includes a method to set and retrieve the data stored,
 and a method to set and retrieve the next node in the linked list.
 
-The SinglyLinkedList class includes a method to insert a new Node into the correct sorted position in the list,
-and a method to print the entire list in stdout, one node number by line.
+The SinglyLinkedList class includes a method to insert a new Node into
+the correct sorted position in the list, and a method to print the
+entire list in stdout, one node number by line.
 """
 
 
@@ -27,7 +28,7 @@ class Node:
 
         Args:
             data (int): data to be stored in the node.
-            next_node (Node, optional): next node in the linked list. Defaults to None.
+            next_node (Node, optional): next node.
 
         """
         self.data = data
