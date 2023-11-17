@@ -81,4 +81,3 @@ class Square:
     def __le__(self, other):
         """Defines the <= comparison operator of two squares"""
         return self.area() <= other.area()
-    
