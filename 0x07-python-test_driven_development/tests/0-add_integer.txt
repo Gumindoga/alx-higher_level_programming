@@ -1,0 +1,30 @@
+"""
+This is the test file for 0-add_integer.py
+"""
+
+# Import the function to test
+add_integer = __import__('0-add_integer').add_integer
+
+# Test: Adding two integers
+assert add_integer(1, 2) == 3
+
+# Test: Adding two integers, one of them negative
+assert add_integer(100, -2) == 98
+
+# Test: Adding one integer (second argument defaults to 98)
+assert add_integer(2) == 100
+
+# Test: Adding two floats (should be casted to integers before addition)
+assert add_integer(100.3, -2) == 98
+
+# Test: Adding an integer and a string (should raise a TypeError)
+try:
+    print(add_integer(4, "School"))
+except Exception as e:
+    assert str(e) == "b must be an integer"
+
+# Test: Adding None (should raise a TypeError)
+try:
+    print(add_integer(None))
+except Exception as e:
+    assert str(e) == "a must be an integer"
