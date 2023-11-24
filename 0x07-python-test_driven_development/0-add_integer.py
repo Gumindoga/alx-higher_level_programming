@@ -8,6 +8,7 @@ If either argument is a float, it is cast to an integer before addition.
 The function returns the sum of the two arguments.
 """
 
+
 def add_integer(a, b=98):
     """
     Adds two integers.
@@ -21,9 +22,9 @@ def add_integer(a, b=98):
     Returns:
         The sum of a and b, as an integer.
     """
-    if not isinstance(a, (int, float)):
+    if type(a) not in (int, float):
         raise TypeError("a must be an integer")
-    if not isinstance(b, (int, float)):
+    if type(b) not in (int, float):
         raise TypeError("b must be an integer")
 
     return int(a) + int(b)
