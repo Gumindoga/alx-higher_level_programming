@@ -6,7 +6,6 @@ The function takes two arguments: a matrix and a divisor.
 The matrix must be a list of lists of integers or floats.
 Each row of the matrix must be of the same size.
 The divisor must be a number (integer or float) and can't be equal to 0.
-All elements of the matrix are divided by the divisor, rounded to 2 decimal places.
 The function returns a new matrix.
 """
 
@@ -16,23 +15,34 @@ def matrix_divided(matrix, div):
     Divides all elements of a matrix.
 
     Args:
-        matrix: The matrix to divide. Must be a list of lists of integers or floats.
+        matrix: The matrix to divide. Must be a list of lists of integers..
                 Each row of the matrix must be of the same size.
-        div: The number to divide the matrix by. Must be a number (integer or float).
+        div: The number to divide the matrix by. Must be a number.
              Can't be equal to 0.
 
     Returns:
-        A new matrix with all elements divided by div, rounded to 2 decimal places.
+        A new matrix with all elements divided by div, rounded to 2 dp.
     """
-    if not isinstance(matrix, list) or not all(isinstance(row, list) for row in matrix):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
-    if not all(isinstance(el, (int, float)) for row in matrix for el in row):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
-    if not all(len(row) == len(matrix[0]) for row in matrix):
-        raise TypeError("Each row of the matrix must have the same size")
-    if not isinstance(div, (int, float)):
-        raise TypeError("div must be a number")
+    lol_err = "matrix must be a matrix (list of lists) of integers/floats"
+    row_err = "Each row of the matrix must have the same size"
+    div_err = "div must be a number"
+    zero_err = "division by zero"
+    
+    if not isinstance(matrix, list) or not all(
+        (isinstance(row, list) for row in matrix)
+    ):
+        raise TypeError(lol_err)
+
+    row_size = len(matrix[0])
+    for row in matrix:
+        if any(type(e) not in (int, float) for e in row):
+            raise TypeError(lol_err)
+        if len(row) != row_size:
+            raise TypeError(row_err)
+
+    if type(div) not in (int, float):
+        raise TypeError(div_err)
     if div == 0:
-        raise ZeroDivisionError("division by zero")
+        raise ZeroDivisionError(zero_err)
 
     return [[round(el / div, 2) for el in row] for row in matrix]
