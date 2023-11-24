@@ -27,6 +27,7 @@ def matrix_divided(matrix, div):
     row_err = "Each row of the matrix must have the same size"
     div_err = "div must be a number"
     zero_err = "division by zero"
+    ovf_err = "cannot convert float infinity to integer"
 
     if not isinstance(matrix, list) or not all(
         (isinstance(row, list) for row in matrix)
@@ -44,5 +45,7 @@ def matrix_divided(matrix, div):
         raise TypeError(div_err)
     if div == 0:
         raise ZeroDivisionError(zero_err)
-
-    return [[round(el / div, 2) for el in row] for row in matrix]
+    if div == float('inf') or div == float('-inf'):
+        raise OverflowError(ovf_err)
+	
+	return [[round(el / div, 2) for el in row] for row in matrix]
