@@ -47,5 +47,5 @@ def matrix_divided(matrix, div):
         raise ZeroDivisionError(zero_err)
     if div == float('inf') or div == float('-inf'):
         raise OverflowError(ovf_err)
-	
-	return [[round(el / div, 2) for el in row] for row in matrix]
+
+    return [[round(el / div, 2) for el in row] for row in matrix]
