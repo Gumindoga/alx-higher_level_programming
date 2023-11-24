@@ -27,7 +27,7 @@ def matrix_divided(matrix, div):
     row_err = "Each row of the matrix must have the same size"
     div_err = "div must be a number"
     zero_err = "division by zero"
-    
+
     if not isinstance(matrix, list) or not all(
         (isinstance(row, list) for row in matrix)
     ):

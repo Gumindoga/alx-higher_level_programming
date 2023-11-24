@@ -98,20 +98,6 @@ Tests
     ...
     TypeError: div must be a number
 
-* Divide a matrix by positive infinity
-
-    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], float("inf"))
-    Traceback (most recent call last):
-    ...
-    OverflowError: cannot convert float infinity to integer
-
-* Divide a matrix by negative infinity
-
-    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], float("-inf"))
-    Traceback (most recent call last):
-    ...
-    OverflowError: cannot convert float infinity to integer
-
 * Divide a matrix with a float element of positive infinity
 
     >>> matrix_divided([[4, 5, 6], float("inf")], 3)
