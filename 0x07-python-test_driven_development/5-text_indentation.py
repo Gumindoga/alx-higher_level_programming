@@ -11,10 +11,23 @@ def text_indentation(text):
     Arguments:
     text: string
     """
-    if type(text) is not str:
+    if not isinstance(text, str):
         raise TypeError("text must be a string")
-    text = text.replace('.', '.\n\n')
-    text = text.replace('?', '?\n\n')
-    text = text.replace(':', ':\n\n')
+    if not text:
+        return
 
-    print("\n".join([line if line == '' else line.strip() for line in text.split('\n')]), end="")
+    chars = ""
+    split = []
+    for char in text:
+        chars += char
+        if char in ".?:":
+            split.append(chars.strip())
+            chars = ""
+
+    if chars:
+        split.append("".join(chars).strip())
+
+    for line in split[:-1]:
+        print(line)
+        print("")
+    print(split[-1], end="")
