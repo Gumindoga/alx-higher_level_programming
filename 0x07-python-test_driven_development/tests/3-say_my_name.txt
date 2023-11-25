@@ -24,7 +24,7 @@ Valid input with both first name and last name:
 Valid input with only the first name:
 
     >>> say_my_name("Bob")
-    My name is Bob
+    My name is Bob 
 
 Invalid input with undefined variable a:
 
