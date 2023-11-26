@@ -15,5 +15,7 @@ def lazy_matrix_mul(m_a, m_b):
     """
 
     # Multiply m_a and m_b using NumPy
-
-    return np.matmul(m_a, m_b)
+	 
+    product = np.matmul(m_a, m_b)
+    
+    return product
