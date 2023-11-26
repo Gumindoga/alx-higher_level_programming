@@ -17,7 +17,9 @@ class Rectangle:
     a __del__ method to print a message when an instance is deleted,
     public class attributes number_of_instances and print_symbol,
     a static method bigger_or_equal
-    to return the biggest rectangle based on the area, and a class method square to return a new Rectangle instance with width == height == size.
+    to return the biggest rectangle based on the area,
+    and a class method square to return a new Rectangle instance
+    with width == height == size.
     """
 
     number_of_instances = 0
