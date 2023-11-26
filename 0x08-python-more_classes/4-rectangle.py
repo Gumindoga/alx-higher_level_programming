@@ -10,8 +10,10 @@ class Rectangle:
     """
     This is the Rectangle class.
 
-    The Rectangle class defines a rectangle with private instance attributes width and height.
-    It also includes methods to calculate the area and perimeter, and string and repr representation methods.
+    The Rectangle class defines a rectangle
+    with private instance attributes width and height.
+    It also includes methods to calculate the area and perimeter,
+    and string and repr representation methods.
     """
 
     def __init__(self, width=0, height=0):

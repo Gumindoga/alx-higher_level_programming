@@ -10,7 +10,8 @@ class Rectangle:
     """
     This is the Rectangle class.
 
-    The Rectangle class defines a rectangle with private instance attributes width and height.
+    The Rectangle class defines a rectangle
+    with private instance attributes width and height.
     It also includes methods to calculate the area and perimeter.
     """
 

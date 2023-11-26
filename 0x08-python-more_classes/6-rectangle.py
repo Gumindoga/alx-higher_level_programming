@@ -10,9 +10,12 @@ class Rectangle:
     """
     This is the Rectangle class.
 
-    The Rectangle class defines a rectangle with private instance attributes width and height.
-    It also includes methods to calculate the area and perimeter, string and repr representation methods,
-    a __del__ method to print a message when an instance is deleted, and a public class attribute number_of_instances.
+    The Rectangle class defines a rectangle
+    with private instance attributes width and height.
+    It also includes methods to calculate the area and perimeter,
+    string and repr representation methods,
+    a __del__ method to print a message when an instance is deleted,
+    and a public class attribute number_of_instances.
     """
 
     number_of_instances = 0

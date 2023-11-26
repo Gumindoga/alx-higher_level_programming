@@ -10,10 +10,14 @@ class Rectangle:
     """
     This is the Rectangle class.
 
-    The Rectangle class defines a rectangle with private instance attributes width and height.
-    It also includes methods to calculate the area and perimeter, string and repr representation methods,
-    a __del__ method to print a message when an instance is deleted, public class attributes number_of_instances and print_symbol,
-    and a static method bigger_or_equal to return the biggest rectangle based on the area.
+    The Rectangle class defines a rectangle
+    with private instance attributes width and height.
+    It also includes methods to calculate the area and perimeter,
+    string and repr representation methods,
+    a __del__ method to print a message when an instance is deleted,
+    public class attributes number_of_instances and print_symbol,
+    and a static method bigger_or_equal
+    to return the biggest rectangle based on the area.
     """
 
     number_of_instances = 0
@@ -59,7 +63,8 @@ class Rectangle:
     def __str__(self):
         if self.__width == 0 or self.__height == 0:
             return ""
-        return ((str(self.print_symbol) * self.__width + '\n') * self.__height)[:-1]
+        return ((str(self.print_symbol) * self.__width + '\n')
+                * self.__height)[:-1]
 
     def __repr__(self):
         return "Rectangle({}, {})".format(self.__width, self.__height)
