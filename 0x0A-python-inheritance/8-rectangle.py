@@ -10,6 +10,21 @@ class BaseGeometry:
     Base class for geometrical objects.
     """
 
+    def area(self):
+        """
+        Calculates the area of the object. Not implemented.
+        """
+        raise Exception("area() is not implemented")
+
+    def integer_validator(self, name, value):
+        """
+        Validates that 'value' is a positive integer.
+        """
+        if type(value) is not int:
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
+
 
 class Rectangle(BaseGeometry):
     """
