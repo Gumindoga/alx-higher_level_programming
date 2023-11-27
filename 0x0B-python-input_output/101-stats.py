@@ -17,7 +17,11 @@ def compute_metrics(size: int, status_codes: dict):
     for key in sorted(status_codes):
         print(f"{key}: {status_codes[key]}")
 
+
+if __name__ == "__main__":
+    size = 0
     count = 0
+    status_codes = {}
     valid_codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
 
     try:
@@ -40,9 +44,6 @@ def compute_metrics(size: int, status_codes: dict):
                         status_codes[line[-2]] += 1
         compute_metrics(size, status_codes)
 
-    except KeyboardInterrupt as k:
+    except KeyboardInterrupt as K:
         compute_metrics(size, status_codes)
-        raise k
-
-if __name__ == "__main__":
-    compute_metrics(0, {})
+        raise K
