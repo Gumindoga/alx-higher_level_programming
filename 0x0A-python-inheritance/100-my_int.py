@@ -20,4 +20,3 @@ class MyInt(int):
         Inverted inequality comparison.
         """
         return super().__eq__(other)
-	

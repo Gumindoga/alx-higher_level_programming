@@ -2,7 +2,8 @@
 """
 This module contains a class MyList that inherits from list.
 
-The MyList class has a method print_sorted that prints the list in ascending order.
+The MyList class has a method print_sorted
+that prints the list in ascending order.
 """
 
 
