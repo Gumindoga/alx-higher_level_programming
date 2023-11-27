@@ -5,6 +5,7 @@ This is the "101-locked_class" module.
 The 101-locked_class module defines the LockedClass class.
 """
 
+
 class LockedClass:
     """
     This is the LockedClass class.
