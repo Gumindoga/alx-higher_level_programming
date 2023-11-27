@@ -2,49 +2,47 @@
 """
 This module reads stdin line by line and computes metrics.
 """
-
 import sys
+import contextlib
 
 
-def compute_metrics():
+def compute_metrics(size: int, status_codes: dict):
+    """Prints the metrics.
+
+    Args:
+        size (int): The total read file size so far.
+        status_codes (dict): The status codes.
     """
-    Compute metrics from stdin.
+    print(f"File size: {size}")
+    for key in sorted(status_codes):
+        print(f"{key}: {status_codes[key]}")
 
-    This function reads from stdin line by line, splits each line into words,
-    and extracts the status code and file size from the end of each line.
-    It keeps a running total of the file size and counts of each status code.
-    Every 10 lines, it prints the total file size & counts of each status code.
-    It also handles a KeyboardInterrupt (CTRL + C) gracefully, printing the
-    metrics before exiting.
-    """
-    status_codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
-    file_size = 0
+    count = 0
+    valid_codes = ["200", "301", "400", "401", "403", "404", "405", "500"]
+
     try:
-        for i, line in enumerate(sys.stdin, 1):
-            split_line = line.split()
-            if (
-                len(split_line) < 2
-                or not split_line[-2].isdigit()
-                or not split_line[-1].isdigit()
-            ):
-                continue
-            status_code = int(split_line[-2])
-            file_size += int(split_line[-1])
-            if status_code in status_codes:
-                status_codes[status_code] += 1
-            if i % 10 == 0:
-                print("File size: {}".format(file_size))
-                for code in sorted(status_codes.keys()):
-                    if status_codes[code] > 0:
-                        print("{}: {}".format(code, status_codes[code]))
-    except KeyboardInterrupt:
-        pass
-    finally:
-        print("File size: {}".format(file_size))
-        for code in sorted(status_codes.keys()):
-            if status_codes[code] > 0:
-                print("{}: {}".format(code, status_codes[code]))
+        for line in sys.stdin:
+            if count == 10:
+                compute_metrics(size, status_codes)
+                count = 1
+            else:
+                count += 1
 
+            line = line.split()
+
+            with contextlib.suppress(IndexError, ValueError):
+                size += int(line[-1])
+            with contextlib.suppress(IndexError):
+                if line[-2] in valid_codes:
+                    if status_codes.get(line[-2], -1) == -1:
+                        status_codes[line[-2]] = 1
+                    else:
+                        status_codes[line[-2]] += 1
+        compute_metrics(size, status_codes)
+
+    except KeyboardInterrupt as k:
+        compute_metrics(size, status_codes)
+        raise k
 
 if __name__ == "__main__":
-    compute_metrics()
+    compute_metrics(0, {})
