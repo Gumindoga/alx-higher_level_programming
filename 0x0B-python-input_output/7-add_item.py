@@ -3,8 +3,8 @@
 This module contains a script that adds all arguments to a Python list,
 and then saves them to a file using JSON representation.
 """
-
 import sys
+
 
 # Importing the necessary functions
 save_to_json_file = __import__("5-save_to_json_file").save_to_json_file

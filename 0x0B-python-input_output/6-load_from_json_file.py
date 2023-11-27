@@ -2,6 +2,7 @@
 """
 Module for loading an object from a file using JSON
 """
+import json
 
 
 def load_from_json_file(filename):

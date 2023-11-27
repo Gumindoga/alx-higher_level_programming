@@ -2,6 +2,7 @@
 """
 Module for saving an object to a file using JSON
 """
+import json
 
 
 def save_to_json_file(my_obj, filename):
