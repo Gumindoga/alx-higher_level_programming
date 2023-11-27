@@ -17,21 +17,16 @@ def compute_metrics():
     It also handles a KeyboardInterrupt (CTRL + C) gracefully, printing the
     metrics before exiting.
     """
-    status_codes = {
-        200: 0,
-        301: 0,
-        400: 0,
-        401: 0,
-        403: 0,
-        404: 0,
-        405: 0,
-        500: 0
-    }
+    status_codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
     file_size = 0
     try:
         for i, line in enumerate(sys.stdin, 1):
             split_line = line.split()
-            if len(split_line) < 2 or not split_line[-2].isdigit():
+            if (
+                len(split_line) < 2
+                or not split_line[-2].isdigit()
+                or not split_line[-1].isdigit()
+            ):
                 continue
             status_code = int(split_line[-2])
             file_size += int(split_line[-1])
